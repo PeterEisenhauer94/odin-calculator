@@ -1,6 +1,9 @@
 //global vars
 let calcDisplay = document.querySelector('#display-number');
-let num = 0;
+let displayNum = '0';
+let operatorFlag = '';
+let num1 = 0;
+let num2 = 0;
 
 //functions
 function add(num1,num2){
@@ -23,6 +26,36 @@ function divide(num1,num2){
 }
 
 function operate(operator,num1,num2){
+    switch(operator){
+        case 'plus':
+            num1 = parseInt(num1);
+            num2 = parseInt(num2);
+            displayNum = add(num1,num2);
+            num1 = add(num1,num2);
+            updateDisplay(displayNum);
+            break;
+        case 'minus':
+            num1 = parseInt(num1);
+            num2 = parseInt(num2);
+            displayNum = subtract(num1,num2);
+            num1 = subtract(num1,num2);
+            updateDisplay(displayNum);
+            break;
+        case 'multiply':
+            num1 = parseInt(num1);
+            num2 = parseInt(num2);
+            displayNum = multiply(num1,num2);
+            num1 = multiply(num1,num2);
+            updateDisplay(displayNum);
+            break;
+        case 'divide':
+            num1 = parseInt(num1);
+            num2 = parseInt(num2);
+            displayNum = divide(num1,num2);
+            num1 = divide(num1,num2);
+            updateDisplay(displayNum);
+            break;
+    }
 }
 
 function updateDisplay(num){
@@ -32,116 +65,159 @@ function updateDisplay(num){
 //button actions
 let btn1 = document.querySelector('#btn1');
 btn1.addEventListener('click',()=>{
-    if(calcDisplay.textContent=='0'){
-        num='1';
-        updateDisplay(num);
+    if(displayNum =='0'){
+        displayNum='1';
+        updateDisplay(displayNum);
     } else {
-        num+='1';
-        updateDisplay(num);
+        displayNum+='1';
+        updateDisplay(displayNum);
     };
 });
 
 let btn2 = document.querySelector('#btn2');
 btn2.addEventListener('click',()=>{
-    if(calcDisplay.textContent=='0'){
-        num='2';
-        updateDisplay(num);
+    if(displayNum=='0'){
+        displayNum='2';
+        updateDisplay(displayNum);
     } else {
-        num+='2';
-        updateDisplay(num);
+        displayNum+='2';
+        updateDisplay(displayNum);
     };
 });
 
 let btn3 = document.querySelector('#btn3');
 btn3.addEventListener('click',()=>{
-    if(calcDisplay.textContent=='0'){
-        num='3';
-        updateDisplay(num);
+    if(displayNum=='0'){
+        displayNum='3';
+        updateDisplay(displayNum);
     } else {
-        num+='3';
-        updateDisplay(num);
+        displayNum+='3';
+        updateDisplay(displayNum);
     };
 });
 
 let btn4 = document.querySelector('#btn4');
 btn4.addEventListener('click',()=>{
-    if(calcDisplay.textContent=='0'){
-        num='4';
-        updateDisplay(num);
+    if(displayNum=='0'){
+        displayNum='4';
+        updateDisplay(displayNum);
     } else {
-        num+='4';
-        updateDisplay(num);
+        displayNum+='4';
+        updateDisplay(displayNum);
     };
 });
 
 let btn5 = document.querySelector('#btn5');
 btn5.addEventListener('click',()=>{
-    if(calcDisplay.textContent=='0'){
-        num='5';
-        updateDisplay(num);
+    if(displayNum=='0'){
+        displayNum='5';
+        updateDisplay(displayNum);
     } else {
-        num+='5';
-        updateDisplay(num);
+        displayNum+='5';
+        updateDisplay(displayNum);
     };
 });
 
 let btn6 = document.querySelector('#btn6');
 btn6.addEventListener('click',()=>{
-    if(calcDisplay.textContent=='0'){
-        num='6';
-        updateDisplay(num);
+    if(displayNum=='0'){
+        displayNum='6';
+        updateDisplay(displayNum);
     } else {
-        num+='6';
-        updateDisplay(num);
+        displayNum+='6';
+        updateDisplay(displayNum);
     };
 });
 
 let btn7 = document.querySelector('#btn7');
 btn7.addEventListener('click',()=>{
-    if(calcDisplay.textContent=='0'){
-        num='7';
-        updateDisplay(num);
+    if(displayNum=='0'){
+        displayNum='7';
+        updateDisplay(displayNum);
     } else {
-        num+='7';
-        updateDisplay(num);
+        displayNum+='7';
+        updateDisplay(displayNum);
     };
 });
 
 let btn8 = document.querySelector('#btn8');
 btn8.addEventListener('click',()=>{
-    if(calcDisplay.textContent=='0'){
-        num='8';
-        updateDisplay(num);
+    if(displayNum=='0'){
+        displayNum='8';
+        updateDisplay(displayNum);
     } else {
-        num+='8';
-        updateDisplay(num);
+        displayNum+='8';
+        updateDisplay(displayNum);
     };
 });
 
 let btn9 = document.querySelector('#btn9');
 btn9.addEventListener('click',()=>{
-    if(calcDisplay.textContent=='0'){
-        num='9';
-        updateDisplay(num);
+    if(displayNum=='0'){
+        displayNum='9';
+        updateDisplay(displayNum);
     } else {
-        num+='9';
-        updateDisplay(num);
+        displayNum+='9';
+        updateDisplay(displayNum);
     };
 });
 
 let btn0 = document.querySelector('#btn0');
 btn0.addEventListener('click',()=>{
-    if(calcDisplay.textContent=='0'){
+    if(displayNum=='0'){
         return;
     } else {
-        num+='0';
-        updateDisplay(num);
+        displayNum+='0';
+        updateDisplay(displayNum);
     }
 });
 
 let btnClear = document.querySelector('#btnClear');
 btnClear.addEventListener('click', ()=>{
-    num1=0
+    num1=0;
     num2=0;
-    updateDisplay('0');
+    displayNum = '0';
+    updateDisplay(displayNum);
+});
+
+let btnPlus = document.querySelector('#btnPlus');
+btnPlus.addEventListener('click',()=>{
+    num1 = displayNum;
+    displayNum = '0';
+    updateDisplay(displayNum);
+    operatorFlag = 'plus';
+    //deactivate other operator buttons
+});
+
+let btnMinus = document.querySelector('#btnMinus');
+btnMinus.addEventListener('click',()=>{
+    num1 = displayNum;
+    displayNum = '0';
+    updateDisplay(displayNum);
+    operatorFlag = 'minus';
+    //deactivate other operator buttons
+});
+
+let btnMultiply = document.querySelector('#btnMultiply');
+btnMultiply.addEventListener('click',()=>{
+    num1 = displayNum;
+    displayNum = '0';
+    updateDisplay(displayNum);
+    operatorFlag = 'multiply';
+    //deactivate other operator buttons
+});
+
+let btnDivide = document.querySelector('#btnDivide');
+btnDivide.addEventListener('click', ()=>{
+    num1 = displayNum;
+    displayNum = '0';
+    updateDisplay(displayNum);
+    operatorFlag = 'divide';
+    //deactivate other operator buttons
+});
+
+let btnEquals = document.querySelector('#btnEquals');
+btnEquals.addEventListener('click',()=>{
+    num2=displayNum;
+    operate(operatorFlag,num1,num2);
 });
