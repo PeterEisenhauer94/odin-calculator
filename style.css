@@ -1,0 +1,13 @@
+#button-display {
+    display: flex;
+}
+
+#number-grid {
+    display: flex;
+    flex-direction: column;
+}
+
+#func-column{
+    display: flex;
+    flex-direction: column;
+}
