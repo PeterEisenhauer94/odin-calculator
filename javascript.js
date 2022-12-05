@@ -33,6 +33,10 @@ function operate(operator,num1,num2){
             displayNum = add(num1,num2);
             num1 = add(num1,num2);
             updateDisplay(displayNum);
+            //reactivate operator buttons
+            btnDivide.classList.toggle('inactive');
+            btnMultiply.classList.toggle('inactive');
+            btnMinus.classList.toggle('inactive');
             break;
         case 'minus':
             num1 = parseInt(num1);
@@ -40,6 +44,10 @@ function operate(operator,num1,num2){
             displayNum = subtract(num1,num2);
             num1 = subtract(num1,num2);
             updateDisplay(displayNum);
+            //reactivate operator buttons
+            btnDivide.classList.toggle('inactive');
+            btnMultiply.classList.toggle('inactive');
+            btnPlus.classList.toggle('inactive');
             break;
         case 'multiply':
             num1 = parseInt(num1);
@@ -47,6 +55,10 @@ function operate(operator,num1,num2){
             displayNum = multiply(num1,num2);
             num1 = multiply(num1,num2);
             updateDisplay(displayNum);
+            //reactivate operator buttons
+            btnDivide.classList.toggle('inactive');
+            btnMinus.classList.toggle('inactive');
+            btnPlus.classList.toggle('inactive');
             break;
         case 'divide':
             num1 = parseInt(num1);
@@ -54,6 +66,10 @@ function operate(operator,num1,num2){
             displayNum = divide(num1,num2);
             num1 = divide(num1,num2);
             updateDisplay(displayNum);
+            //reactivate operator buttons
+            btnMultiply.classList.toggle('inactive');
+            btnMinus.classList.toggle('inactive');
+            btnPlus.classList.toggle('inactive');
             break;
     }
 }
@@ -182,38 +198,58 @@ btnClear.addEventListener('click', ()=>{
 
 let btnPlus = document.querySelector('#btnPlus');
 btnPlus.addEventListener('click',()=>{
-    num1 = displayNum;
-    displayNum = '0';
-    updateDisplay(displayNum);
-    operatorFlag = 'plus';
-    //deactivate other operator buttons
+    if(!btnPlus.classList.contains('inactive')){
+        num1 = displayNum;
+        displayNum = '0';
+        updateDisplay(displayNum);
+        operatorFlag = 'plus';
+        //deactivate other operator buttons
+        btnDivide.classList.toggle('inactive');
+        btnMultiply.classList.toggle('inactive');
+        btnMinus.classList.toggle('inactive');
+    }    
 });
 
 let btnMinus = document.querySelector('#btnMinus');
 btnMinus.addEventListener('click',()=>{
-    num1 = displayNum;
-    displayNum = '0';
-    updateDisplay(displayNum);
-    operatorFlag = 'minus';
-    //deactivate other operator buttons
+    if(!btnMinus.classList.contains('inactive')){
+        num1 = displayNum;
+        displayNum = '0';
+        updateDisplay(displayNum);
+        operatorFlag = 'minus';
+        //deactivate other operator buttons
+        btnDivide.classList.toggle('inactive');
+        btnMultiply.classList.toggle('inactive');
+        btnPlus.classList.toggle('inactive');
+    }
 });
 
 let btnMultiply = document.querySelector('#btnMultiply');
 btnMultiply.addEventListener('click',()=>{
-    num1 = displayNum;
-    displayNum = '0';
-    updateDisplay(displayNum);
-    operatorFlag = 'multiply';
-    //deactivate other operator buttons
+    if(!btnMultiply.classList.contains('inactive')){
+        num1 = displayNum;
+        displayNum = '0';
+        updateDisplay(displayNum);
+        operatorFlag = 'multiply';
+        //deactivate other operator buttons
+        btnDivide.classList.toggle('inactive');
+        btnMinus.classList.toggle('inactive');
+        btnPlus.classList.toggle('inactive');
+    }
 });
 
 let btnDivide = document.querySelector('#btnDivide');
 btnDivide.addEventListener('click', ()=>{
-    num1 = displayNum;
-    displayNum = '0';
-    updateDisplay(displayNum);
-    operatorFlag = 'divide';
-    //deactivate other operator buttons
+    if(!btnDivide.classList.contains('inactive')){
+        num1 = displayNum;
+        displayNum = '0';
+        updateDisplay(displayNum);
+        operatorFlag = 'divide';
+        //deactivate other operator buttons
+        btnMultiply.classList.toggle('inactive');
+        btnMinus.classList.toggle('inactive');
+        btnPlus.classList.toggle('inactive');
+    }
 });
 
 let btnEquals = document.querySelector('#btnEquals');
