@@ -1,12 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
 html, body{
     margin: 0px;
     background-color: #9ED5C5;
+}
+button{
+    font-family: Orbitron;
+    text-align: center;
 }
 
 #calc-display{
     background-color: #DEF5E5;
     width: 200px;
     font-size: 32px;
+}
+#display-number{
+    margin-left: 3px;
+    font-family: Orbitron;
 }
 #calculator{
     margin-left: 45vw;

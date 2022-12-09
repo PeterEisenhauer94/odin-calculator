@@ -75,6 +75,9 @@ function operate(operator,num1,num2){
 }
 
 function updateDisplay(num){
+    if(num>999999999999){
+        num = 999999999999;
+    } 
     calcDisplay.textContent = num;
 }
 
